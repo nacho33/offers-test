@@ -1,0 +1,17 @@
+  <% unless @offer_opinions.first %>
+    <p><%= t(:no_opinions) %></p>
+  <% else %>
+    <% @offer_opinions.each do |opinion| %>
+      <div class='opinion-cell'>
+            <div class='first-line-opinion-cell'>
+              <p class='pull-left'>User: <%= opinion.username %></p>
+              <p class='pull-right'>Rating: <%= opinion.points %></p>
+            </div>
+            <h3><%= opinion.title %></h3>
+            <p><%= opinion.description %></p>
+          </div>
+    <% end %>
+  <% end %>
+  <div id='new-rating-points' class='hidden'><%= @offer.points %></div>
+  
+  

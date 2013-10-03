@@ -1,0 +1,58 @@
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.icon-container').on('click', 'i',function(){
+            console.log('encima');
+            $(this).closest('.offer-bottom-cell').find('.offer-description').toggleClass('hidden');
+        });
+    });
+
+</script>
+<h1>Listing offers</h1>
+
+<table class='show-offers-table'>
+  
+<% @offers.in_groups_of(3, false) do |row_offer| %>
+    <tr>
+        <% for offer in row_offer %>
+            <td class='offer-main-cell'>
+                <div class='offer-top-cell'>
+                    <div class='image-container-cell'>
+                        <%= image_tag offer.photo.url(:small) %>
+                    </div>
+                </div>
+                <div class='offer-middle-cell'>
+                    <p><%= link_to offer.title, offer %></p>
+                </div>
+                <div class='offer-bottom-cell'>
+                    <div>
+                        <div class='left-info'>
+                            <p>Price: <%= offer.price %>€</p>
+                        </div>
+                        <div class='right-info'>
+                            <p>City: <%= offer.city %></p>
+                        </div>
+                    </div>
+                    <div>Rating: <%= offer.points %>
+                        <div class="progress progress-striped active">
+                            <div class="bar" style="width: 0%;"></div>
+                        </div>
+
+                    </div>
+                    <div class='icon-container'>
+                        <i class="icon-chevron-down more-details-button"></i>
+                    </div>
+                    <div class='offer-description hidden'>
+                        <%= offer.description %>
+                    </div>
+                </div>
+            </td>
+            <td></td>
+        <% end %>    
+    </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Offer', new_offer_path %>

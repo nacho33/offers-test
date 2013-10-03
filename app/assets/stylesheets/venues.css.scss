@@ -1,0 +1,29 @@
+// Place all the styles related to the venues controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.back-button{
+	display: block;
+	margin-top: 2%;
+}
+
+.site-map{
+	float: left;
+	text-align: left;
+	width: 98%;
+}
+.site-map input[type="text"] {
+	float: left;
+}
+.address-first-line{
+	display: inline-block;
+	width: 96%;
+}
+#right-address_label{
+	float: left;
+	width: 85px;
+	margin-right: 1%;
+}
+#queryInput{
+	margin-right: 1%;	
+}

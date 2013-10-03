@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @opinion.user_id %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @opinion.description %>
+</p>
+
+<p>
+  <b>Points:</b>
+  <%= @opinion.points %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @opinion.title %>
+</p>
+
+
+<%= link_to 'Edit', edit_opinion_path(@opinion) %> |
+<%= link_to 'Back', opinions_path %>

@@ -1,0 +1,75 @@
+<%= form_for @offer, :html => {:multipart => true} do |f| %>
+  <% if @offer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@offer.errors.count, "error") %> prohibited this offer from being saved:</h2>
+
+      <ul>
+      <% @offer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class='blocks-container'>
+    <article id='left-block'>
+      <div class="control-group">
+        <%= f.label :title, class: 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :title %>
+        </div>        
+      </div>
+
+      <div class="control-group">
+        <%= f.label :description, class: 'control-label' %>
+        <div class="controls">
+          <%= f.text_area :description, rows: 3, maxlength: 250 %>
+        </div>        
+      </div>
+
+      <div class="control-group">
+        <%= f.label :price, class: 'control-label' %>
+        <div class="controls">
+          <%= f.number_field :price %>
+        </div>        
+      </div>
+
+      <div class="control-group">
+        <%= f.label :city, class: 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :city %>
+        </div>        
+      </div>
+
+      <div class="control-group">
+        <%= f.label :offer_type, class: 'control-label' %>
+        <div class="controls">
+          <%= f.collection_select :offer_type, ['Getaways', 'Accessories', 'Electronics', 'Health & Beauty', 'Home & Garden', 'Sports', 'Others'], :to_s, :titleize %>
+        </div>        
+      </div>
+
+      <div class="control-group">
+        <%= 'Venue name' %>
+        <div class="controls">
+          <%= collection_select :venue_name, nil, @venue_names, :to_s, :titleize %>
+        </div>        
+      </div>
+
+    </article>
+   
+    <article id='right-block'>
+      <div class='image-block'>
+        <div class='image-photo'></div>
+      </div>
+      <div class='upload-file-button'>
+        <%= f.file_field :photo %>
+      </div>
+    </article>
+    
+    
+
+  </div>
+  <footer class="actions accept-button">
+    <%= f.submit 'Create', class: 'btn btn-primary' %>
+  </footer>
+
+<% end %>

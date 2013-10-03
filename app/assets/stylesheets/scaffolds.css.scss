@@ -1,0 +1,121 @@
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a {
+  color: #000;
+  &:visited {
+    color: #666;
+  }
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+#logged_user{
+  float: left;
+}
+.main-container{
+  margin-top: 3%;
+  border-width: 2px;
+  border-style: ridge;
+  width: 90%;
+  text-align: center;
+  border-color: #000;
+  margin-left: 5%;
+}
+
+.second-main-container{
+  display: inline-block;
+  width: 100%;
+}
+
+.control-group{
+  display: block;
+}
+.control-label{
+  float: left;
+  width: 30%;
+}
+.controls{
+  width: 68%;
+  float: left;
+  text-align: left;
+}
+.controls input, .controls textarea{
+  width: 80%;
+}
+
+.accept-button{
+  text-align: center;
+}
+
+.blocks-container{
+  width: 96%;
+  display: inline-block;
+}
+
+#left-block{
+  float: left;
+  width: 45%;
+}
+
+#right-block{
+  float: left;
+  width: 45%;
+}

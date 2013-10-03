@@ -1,0 +1,108 @@
+<script type="text/javascript">
+function showValue(newValue)
+{
+  document.getElementById("range").innerHTML=newValue;
+}
+</script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    var rating = '<%= @offer.points %>';
+    refreshRating(rating);
+    $('#send-button').on('click', function(){
+      sendOpinion();
+    });
+  });
+
+  function sendOpinion(){
+    var points = $('#range').text();
+    var title = $('#title_opinion').val();
+    var opinion = $('#description_opinion').val();
+    var offer = '<%= @offer.id %>'
+    $.ajax({
+        url:"/offers/create_opinion",
+        global: false,
+        type: "POST",
+        cache: false,
+        dataType: 'script',
+        data: {points: points, user_opinion: opinion, title_opinion: title, offer: offer},
+        success: function (data) {
+        },
+        complete: function(data){
+          $('#comments').html(data.responseText);
+          refreshRating($('#new-rating-points').text());
+        }
+    });
+  }
+  
+  function refreshRating(rating){
+      ratingWidth = rating * 10;
+      if(rating == 0){
+        $('#rating-info').find('p').text('');
+      }else{
+        $('#rating-info').find('p').text(rating);        
+      }
+      $('#rating-info').find('.bar').css('width', ratingWidth+'%');
+    }
+</script>
+<p id="notice"><%= notice %></p>
+
+  <div class='offer-top'>
+    <div class='offer-left-cell'>
+      <div class='image-container-cell'>
+        <%= image_tag @offer.photo.url(:small) %>
+      </div>
+    </div>
+  
+    <div class='offer-right-cell'>
+        <div class='general-info'>
+            <h1><%= link_to @offer.title, @offer %></h1>
+            <p>Venue: <%= @venue_name %></p>
+            <p>Price: <%= @offer.price %>€</p>
+            <p>City: <%= @offer.city %></p>
+        </div>
+        <div id='rating-info'> 
+            <p>Rating: <%= @offer.points %></p>
+            <div class="progress progress-striped active">
+                <div class="bar" style="width: 0%;"></div>
+            </div>
+
+        </div>
+        <p><%= @offer.description %></p>
+    </div>    
+  </div>
+  <div class='offer-middle' >
+    <h3>Comments</h3>
+    <div id='comments'>
+      <% unless @offer_opinions.first %>
+        <p><%= t(:no_opinions) %></p>
+      <% else %>
+        <% @offer_opinions.each do |opinion| %>
+          <div class='opinion-cell'>
+            <div class='first-line-opinion-cell'>
+              <p class='pull-left'>User: <%= opinion.username %></p>
+              <p class='pull-right'>Rating: <%= opinion.points %></p>
+            </div>
+            <h3><%= opinion.title %></h3>
+            <p><%= opinion.description %></p>
+          </div>
+        <% end %>
+      <% end %>
+    </div>  
+
+  </div>
+  <div class='offer-create-opinion-cell'>
+    <p><%= t(:write_comment) %></p>
+      Title: <%= text_field(:title, 'opinion', rows: 2, maxlength: 250) %>
+      Description: <%= text_area(:description, 'opinion', rows: 2, maxlength: 250) %>
+      <div class='rating-line'>
+        <p>Rating: </p><p id="range" style='width:20px'>5</p>
+        <input type="range" min="0" max="10" value="5" step="1" onchange="showValue(this.value)" />
+        <button class='btn btn-primary' id='send-button'><%= t(:send) %></button>
+      </div>
+  </div>
+
+
+<div>
+<%= link_to 'Edit', edit_offer_path(@offer) %> |
+<%= link_to 'Back', offers_path %>
+</div>

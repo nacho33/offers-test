@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  price: 1
+  description: MyString
+  city: MyString
+  points: 1
+  start_date: 2013-09-23 18:08:57
+  finish_date: 2013-09-23 18:08:57
+  offer_type: 1
+  number: 1
+  venue_id: 1
+
+two:
+  price: 1
+  description: MyString
+  city: MyString
+  points: 1
+  start_date: 2013-09-23 18:08:57
+  finish_date: 2013-09-23 18:08:57
+  offer_type: 1
+  number: 1
+  venue_id: 1
