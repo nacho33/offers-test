@@ -3,7 +3,31 @@
 
 en:
   hello: "Hello world"
+  welcome_message: 'Welcome to this project about offers management'
+
+  #General
+  back: Back
+  edit: Edit
+  create: Create
   accept: 'Accept'
   send: 'Send'
+
+  #Layout
+  offers_project: Offers project
+  home: Home
+  edit_profile: Edit profile
+  logout: Logout
+  sign_up: Sign up
+  login: Login
+
+  #Offers
+  city: City
+  price: Price
+  rating: Rating
+  new_offer: New offer
+  venue: Venue
+  comments: Comments
+  venue_name: Venue name
   no_opinions: 'There are no comments. Be the first to do it.'
   write_comment: 'Write your comment'
+

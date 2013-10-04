@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag    "css-general/offers.css.scss" %>
 
 <script type="text/javascript">
     $(document).ready(function(){
@@ -27,13 +28,13 @@
                 <div class='offer-bottom-cell'>
                     <div>
                         <div class='left-info'>
-                            <p>Price: <%= offer.price %>€</p>
+                            <p><%= t(:price) %>: <%= offer.price %>€</p>
                         </div>
                         <div class='right-info'>
-                            <p>City: <%= offer.city %></p>
+                            <p><%= t(:city) %>: <%= offer.city %></p>
                         </div>
                     </div>
-                    <div>Rating: <%= offer.points %>
+                    <div><%= t(:rating) %>: <%= offer.points %>
                         <div class="progress progress-striped active">
                             <div class="bar" style="width: 0%;"></div>
                         </div>
@@ -55,4 +56,4 @@
 
 <br />
 
-<%= link_to 'New Offer', new_offer_path %>
+<%= link_to t(:new_offer), new_offer_path %>

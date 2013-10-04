@@ -1,8 +1,22 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-
+  before_filter :set_locale
 	rescue_from CanCan::AccessDenied do |exception|
 		redirect_to root_url, :alert => exception.message
+	end
+
+	def set_locale
+	  available = ['es', 'en']
+	  puts 'before'
+	  preferred = extract_locale_from_accept_language_header
+	  puts preferred
+	  if available.include? preferred
+	  	puts 1
+	    I18n.locale = preferred
+	  else
+	  	puts 2
+	    I18n.locale = I18n.default_locale
+	  end
 	end
 
 	def user_owns_venue?(venue)
@@ -19,4 +33,11 @@ class ApplicationController < ActionController::Base
 	      end
 	    end
   	end
+
+  	private
+	def extract_locale_from_accept_language_header
+	  if request.env['HTTP_ACCEPT_LANGUAGE']
+	    request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
+	  end
+	end
 end

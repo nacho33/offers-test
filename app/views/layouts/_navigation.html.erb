@@ -1,22 +1,22 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
-    <%= nav_bar :fixed => :top, :brand => "Offers project", :responsive => true do %>
+    <%= nav_bar :fixed => :top, :brand => t(:offers_project), :responsive => true do %>
         <%= menu_group do %>
-            <%= menu_item "Home", root_path %>
+            <%= menu_item t(:home), root_path %>
 
             <% if user_signed_in? %>
              
-              <%= menu_item 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> 
-              <%= menu_item "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+              <%= menu_item t(:edit_profile), edit_user_registration_path, :class => 'navbar-link' %> 
+              <%= menu_item t(:logout), destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
             <% else %>
-              <%= menu_item "Sign up", new_user_registration_path, :class => 'navbar-link'  %> 
-              <%= menu_item "Login", new_user_session_path, :class => 'navbar-link'  %>
+              <%= menu_item t(:sign_up), new_user_registration_path, :class => 'navbar-link'  %> 
+              <%= menu_item t(:login), new_user_session_path, :class => 'navbar-link'  %>
             <% end %>        
 
         <% end %>
         <%= menu_group :pull => :right do %>
             <% if current_user %>
                 <div id='logged_user'>Logged in as <strong><%= current_user.email %></strong>.</div>
-                <%= menu_item "Log Out", destroy_user_session_path, :method=>'delete' %>
+                <%= menu_item t(:logout), destroy_user_session_path, :method=>'delete' %>
             <% else %>
                 
             <% end %>

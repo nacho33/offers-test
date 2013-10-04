@@ -1,0 +1,29 @@
+es:
+  hello: "Hola mundo"  
+  welcome_message: 'Bienvenido a este proyecto sobre gestion de ofertas'
+
+  #General
+  back: Atrás
+  edit: Editar
+  create: Crear
+  accept: 'Acceptar'
+  send: 'Enviar'
+
+  #Layout
+  offers_project: Proyecto de ofertas
+  home: Inicio
+  edit_profile: Editar perfil
+  logout: Salir
+  sign_up: Registrar
+  login: Entrar
+
+  #Offers
+  city: Ciudad
+  price: Precio
+  rating: Valoración
+  new_offer: Nueva oferta
+  venue: Establecimiento
+  comments: Comentarios
+  venue_name: Nombre del establecimiento
+  no_opinions: 'No hay comentarios, Se el primero en hacerlo.'
+  write_comment: 'Escribe tu comentario'

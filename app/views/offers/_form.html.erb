@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag    "css-general/offers.css.scss" %>
+
 <%= form_for @offer, :html => {:multipart => true} do |f| %>
   <% if @offer.errors.any? %>
     <div id="error_explanation">
@@ -48,7 +50,7 @@
       </div>
 
       <div class="control-group">
-        <%= 'Venue name' %>
+        <%= t(:venue_name) %>
         <div class="controls">
           <%= collection_select :venue_name, nil, @venue_names, :to_s, :titleize %>
         </div>        
@@ -69,7 +71,7 @@
 
   </div>
   <footer class="actions accept-button">
-    <%= f.submit 'Create', class: 'btn btn-primary' %>
+    <%= f.submit t(:create), class: 'btn btn-primary' %>
   </footer>
 
 <% end %>

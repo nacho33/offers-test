@@ -11,12 +11,15 @@ This is a Rails web-application that includes user management with devise, migra
 ajax, scopes, intermediate tables, validations, CSS, HTML, paperclip, database relationships, roles 
 with cancan gem,...
 
+I also avoid to send all js and css files in all requests and I have started with internationalization
+(english and spanish). I haven't translated everything because it is a sample of how to use it. 
+
 In the seed file I have created 3 users with different roles and two venues by default.
 
 There are three kind of roles:
-	- User
-	- Venue: can create offers
-	- Admin
+	- User: they can't create offers
+	- Venue: they can create offers
+	- Admin: full access
 
 I will be improve the code little by little and I will be adding more functionalities.
 
