@@ -14,6 +14,8 @@ with cancan gem,...
 I also avoid to send all js and css files in all requests and I have started with internationalization
 (english and spanish). I haven't translated everything because it is a sample of how to use it. 
 
+I have kept on doing some tests using rspec focused on models and controllers(I will keep on doing some more tests). 
+
 In the seed file I have created 3 users with different roles and two venues by default.
 
 There are three kind of roles:

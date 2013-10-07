@@ -21,6 +21,12 @@ end
 gem 'jquery-rails'
 gem 'rails-i18n'
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  # gem 'rails-erd'
+end
+
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"

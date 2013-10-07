@@ -7,14 +7,10 @@ class ApplicationController < ActionController::Base
 
 	def set_locale
 	  available = ['es', 'en']
-	  puts 'before'
 	  preferred = extract_locale_from_accept_language_header
-	  puts preferred
 	  if available.include? preferred
-	  	puts 1
 	    I18n.locale = preferred
 	  else
-	  	puts 2
 	    I18n.locale = I18n.default_locale
 	  end
 	end

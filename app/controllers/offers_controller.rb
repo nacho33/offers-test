@@ -23,7 +23,6 @@ class OffersController < ApplicationController
       @offer_opinions = Opinion.all_offer_opinions(@offer.id)
       #@offer_opinions = @offer_opinions.joins('LEFT OUTER JOIN users ON users.id = opinions.user_id').select('title, description, points, username')
     end
-    puts @offer_opinions.to_yaml
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @offer }
